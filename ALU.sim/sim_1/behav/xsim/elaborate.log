@@ -13,6 +13,7 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.std_logic_arith
 Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
 Compiling architecture behavior of entity xil_defaultlib.ALU [alu_default]
 Compiling architecture test of entity xil_defaultlib.alu_tb
 Built simulation snapshot ALU_tb_behav
