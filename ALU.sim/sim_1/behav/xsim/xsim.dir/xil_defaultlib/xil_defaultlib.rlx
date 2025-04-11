@@ -3,3 +3,5 @@
 Dec 15 2024
 09:04:49
 /home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/ALU.vhd,1744363354,vhdl,,,,alu;alu_tb,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/Registers_bench.vhd,1744364830,vhdl,,,,registers_bench,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/Registers_bench_tb.vhd,1744364904,vhdl,,,,registers_bench_tb,,,,,,,,
