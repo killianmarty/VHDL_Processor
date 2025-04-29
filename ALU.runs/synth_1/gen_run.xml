@@ -4,8 +4,8 @@
   <File Type="RDS-RDS" Name="ALU_tb.vds"/>
   <File Type="REPORTS-TCL" Name="ALU_tb_reports.tcl"/>
   <File Type="PA-TCL" Name="ALU_tb.tcl"/>
-  <File Type="RDS-UTIL" Name="ALU_tb_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="ALU_tb_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="memory_bench_tb_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="memory_bench_tb_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.vhd">
