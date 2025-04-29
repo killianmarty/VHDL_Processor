@@ -25,9 +25,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Registers_bench is
     port (
-        A    : in  std_logic_vector(3 downto 0);
-        B    : in  std_logic_vector(3 downto 0);
-        W    : in  std_logic_vector(3 downto 0);
+        A    : in  std_logic_vector(7 downto 0);
+        B    : in  std_logic_vector(7 downto 0);
+        W    : in  std_logic_vector(7 downto 0);
         WE   : in  std_logic;
         DATA : in  std_logic_vector(7 downto 0);
         RST  : in  std_logic;                     

@@ -35,12 +35,12 @@ architecture rom of instr_memory is
     type rom_t is array (255 downto 0) of std_logic_vector(31 downto 0);
     -- Example program: fill with NOP (0x0000)
     constant ROM_CONTENT : rom_t := (
-        0 => x"1234",
-        1 => x"ABCD",
-        2 => x"0001",
-        16 => x"DEAD",
-        255 => x"BEEF",
-        others => x"0000"
+        0 => x"00001234",
+        1 => x"0000ABCD",
+        2 => x"00000001",
+        16 => x"0000DEAD",
+        255 => x"0000BEEF",
+        others => x"00000000"
     );
     signal ROM : rom_t := ROM_CONTENT;
 begin

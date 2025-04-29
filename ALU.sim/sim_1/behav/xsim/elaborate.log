@@ -1,8 +1,21 @@
 Vivado Simulator v2024.2.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot instr_memory_tb_behav xil_defaultlib.instr_memory_tb -log elaborate.log 
+Running: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot tb_processor_behav xil_defaultlib.tb_processor -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-9565] expression has 16 elements; formal 'instr' expects 32 [/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/instr_memory_tb.vhd:38]
-ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit instr_memory_tb in library work failed.
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rom of entity xil_defaultlib.instr_memory [instr_memory_default]
+Compiling architecture behavioral of entity xil_defaultlib.pipeline [pipeline_default]
+Compiling architecture behavioral of entity xil_defaultlib.LC [lc_default]
+Compiling architecture rtl of entity xil_defaultlib.Registers_bench [registers_bench_default]
+Compiling architecture rtl of entity xil_defaultlib.processor [processor_default]
+Compiling architecture test of entity xil_defaultlib.tb_processor
+Built simulation snapshot tb_processor_behav

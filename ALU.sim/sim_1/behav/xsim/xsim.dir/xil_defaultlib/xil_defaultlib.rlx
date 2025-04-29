@@ -3,9 +3,13 @@
 Dec 15 2024
 09:04:49
 /home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/ALU.vhd,1744363354,vhdl,,,,alu;alu_tb,,,,,,,,
-/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/Registers_bench.vhd,1744364830,vhdl,,,,registers_bench,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/LC.vhd,1745927147,vhdl,/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/processor.vhd,,,lc,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/Registers_bench.vhd,1745927443,vhdl,/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/processor.vhd,,,registers_bench,,,,,,,,
 /home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/Registers_bench_tb.vhd,1744364904,vhdl,,,,registers_bench_tb,,,,,,,,
 /home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/data_memory.vhd,1745913833,vhdl,/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/data_memory_tb.vhd,,,data_memory,,,,,,,,
 /home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/data_memory_tb.vhd,1745914005,vhdl,,,,data_memory_tb,,,,,,,,
-/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/instr_memory.vhd,1745921205,vhdl,/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/instr_memory_tb.vhd,,,instr_memory,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/instr_memory.vhd,1745927364,vhdl,/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/processor.vhd,,,instr_memory,,,,,,,,
 /home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/instr_memory_tb.vhd,1745915554,vhdl,,,,instr_memory_tb,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/pipeline.vhd,1745921049,vhdl,/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/processor.vhd,,,pipeline,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/processor.vhd,1745927293,vhdl,,,,processor,,,,,,,,
+/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/processor_tb.vhd,1745928629,vhdl,,,,tb_processor,,,,,,,,
