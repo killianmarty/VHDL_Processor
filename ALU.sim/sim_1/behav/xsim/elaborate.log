@@ -4,5 +4,5 @@ Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot instr_memory_tb_behav xil_defaultlib.instr_memory_tb -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+ERROR: [VRFC 10-9565] expression has 16 elements; formal 'instr' expects 32 [/home/kmarty/Documents/INSA/4A/VHDL/Exercices/ALU/ALU.srcs/sources_1/new/instr_memory_tb.vhd:38]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit instr_memory_tb in library work failed.

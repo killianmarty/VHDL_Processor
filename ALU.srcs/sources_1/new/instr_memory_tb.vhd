@@ -28,7 +28,7 @@ end instr_memory_tb;
 architecture tb2 of instr_memory_tb is
     signal CLK_tb   : std_logic := '0';
     signal ADDR_tb  : std_logic_vector(7 downto 0);
-    signal INSTR_tb  : std_logic_vector(15 downto 0);
+    signal INSTR_tb  : std_logic_vector(31 downto 0);
 begin
     -- Instantiate DUT
     DUT2: entity work.instr_memory(rom)
