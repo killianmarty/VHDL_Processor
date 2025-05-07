@@ -39,6 +39,9 @@ begin
         case OP is
             when "00000110" =>  -- AFC
                 W <= '1';
+                
+            when x"05" => --COP
+                w <= '1';
 
             when others =>
                 null;

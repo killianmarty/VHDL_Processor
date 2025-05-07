@@ -49,15 +49,15 @@ begin
             if RST = '1' then
                 regfile <= (others => (others => '0'));
             elsif WE = '1' then
-                regfile(to_integer(unsigned(W))) <= DATA;
+                regfile(to_integer(unsigned(W(3 downto 0)))) <= DATA;
             end if;
         end if;
     end process;
 
     QA <= DATA when (WE = '1' and W = A) 
-           else regfile(to_integer(unsigned(A)));
+           else regfile(to_integer(unsigned(A(3 downto 0))));
 
     QB <= DATA when (WE = '1' and W = B) 
-           else regfile(to_integer(unsigned(B)));
+           else regfile(to_integer(unsigned(B(3 downto 0))));
 
 end rtl;

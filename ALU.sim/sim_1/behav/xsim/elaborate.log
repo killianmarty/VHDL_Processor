@@ -12,8 +12,13 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture behavioral of entity xil_defaultlib.counter [counter_default]
+Compiling architecture behavioral of entity xil_defaultlib.alea_predictor [alea_predictor_default]
 Compiling architecture rom of entity xil_defaultlib.instr_memory [instr_memory_default]
 Compiling architecture behavioral of entity xil_defaultlib.pipeline [pipeline_default]
+Compiling architecture behavioral of entity xil_defaultlib.MUX_unit [mux_unit_default]
 Compiling architecture behavioral of entity xil_defaultlib.LC [lc_default]
 Compiling architecture rtl of entity xil_defaultlib.Registers_bench [registers_bench_default]
 Compiling architecture rtl of entity xil_defaultlib.processor [processor_default]

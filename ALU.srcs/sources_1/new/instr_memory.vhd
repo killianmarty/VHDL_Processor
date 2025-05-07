@@ -27,7 +27,8 @@ entity instr_memory is
     port(
         CLK     : in  std_logic;
         ADDR    : in  std_logic_vector(7 downto 0);
-        INSTR   : out std_logic_vector(31 downto 0)
+        INSTR   : out std_logic_vector(31 downto 0);
+        INSTR_NEXT : out std_logic_vector(31 downto 0)
     );
 end instr_memory;
 
@@ -35,9 +36,9 @@ architecture rom of instr_memory is
     type rom_t is array (255 downto 0) of std_logic_vector(31 downto 0);
     -- Example program: fill with NOP (0x0000)
     constant ROM_CONTENT : rom_t := (
-        0 => x"00001234",
-        1 => x"0000ABCD",
-        2 => x"00000001",
+        0 => x"06011200",
+        1 => x"0602AB00",
+        2 => x"05030100",
         16 => x"0000DEAD",
         255 => x"0000BEEF",
         others => x"00000000"

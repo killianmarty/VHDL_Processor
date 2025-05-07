@@ -21,6 +21,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+USE ieee.std_logic_unsigned.ALL;
 
 entity processor is
     Port(
@@ -30,37 +31,51 @@ entity processor is
 end processor;
 
 architecture rtl of processor is
-    signal PC, PC_next : std_logic_vector(7 downto 0);
-    signal instruction  : std_logic_vector(31 downto 0);
+    signal PC : std_logic_vector(7 downto 0);
+    signal instruction, instruction_next  : std_logic_vector(31 downto 0);
     
     signal LI_A, LI_OP, LI_B, LI_C : std_logic_vector(7 downto 0);
     signal DI_A, DI_OP, DI_B, DI_C : std_logic_vector(7 downto 0);
     signal EX_A, EX_OP, EX_B, EX_C : std_logic_vector(7 downto 0);
     signal MEM_A, MEM_OP, MEM_B, MEM_C : std_logic_vector(7 downto 0);
     signal RE_A, RE_OP, RE_B, RE_C : std_logic_vector(7 downto 0);
+    signal QA_DI_MUX, MUX_DI : std_logic_vector(7 downto 0);
     signal LC_REG : std_logic;
+    
 begin
     ----------------------------------------------------------------
     -- Fetch Stage
     ----------------------------------------------------------------
-    PC_next <= std_logic_vector(unsigned(PC) + 4);
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            if rst = '1' then
-                PC <= (others => '0');
-            else
-                PC <= PC_next;
-            end if;
-        end if;
-    end process;
+    program_counter: entity work.counter
+        port map(
+            clock => clk,
+            direction => '1',
+            enable => '1',
+            clear => rst,
+            value => PC
+        );
+    
+    alea_predictor: entity work.alea_predictor
+        port map(
+            clock => clk,
+            instruction => instruction_next,
+            LIDI => DI_OP,
+            LIDI_addr => DI_B,
+            DIEX => EX_OP,
+            DIEX_addr => EX_B,
+            EXMEM => MEM_OP,
+            EXMEM_addr => MEM_B,
+            MEMRE => RE_OP,
+            MEMRE_addr => RE_B
+        );
 
     -- Instruction Memory
     instr_mem: entity work.instr_memory
         port map(
             clk  => clk,
             ADDR => PC,
-            INSTR => instruction
+            INSTR => instruction,
+            INSTR_NEXT => instruction_next
         );
 
     -- LI/DI Pipeline Register
@@ -79,6 +94,14 @@ begin
             enable => '1'
         );
         
+    DI_MUX: entity work.MUX_unit
+        port map(
+            OP_in => DI_OP,
+            B_in => DI_B,
+            data_in => QA_DI_MUX,
+            data_out => MUX_DI
+        );
+        
     -- DI/EX Pipeline Register
     DIEX_stage: entity work.pipeline
         port map(
@@ -86,7 +109,7 @@ begin
             flush  => rst,
             A_in   => DI_A,
             OP_in  => DI_OP,
-            B_in   => DI_B,
+            B_in   => MUX_DI,
             C_in   => (others => '0'),
             A_out  => EX_A,
             OP_out => EX_OP,
@@ -142,7 +165,8 @@ begin
             W => RE_A,
             DATA => RE_B,
             WE => LC_REG,
-            A => (others => '0'),
+            QA => QA_DI_MUX,
+            A => DI_B,
             B => (others => '0')
         );
 
