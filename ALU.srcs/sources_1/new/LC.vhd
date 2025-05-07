@@ -39,13 +39,17 @@ begin
         case OP is
             when "00000110" =>  -- AFC
                 W <= '1';
-                
             when x"05" => --COP
-                w <= '1';
-                
+                W <= '1';
             when x"01" => --ADD
-                w <= '1';
-
+                W <= '1';
+            when x"02" => --MUL
+                W <= '1';
+            when x"03" => --SOU
+                W <= '1';
+            when x"04" => --DIV
+                W <= '1'; 
+                
             when others =>
                 null;
         end case;

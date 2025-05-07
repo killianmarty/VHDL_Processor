@@ -33,6 +33,7 @@ end processor;
 architecture rtl of processor is
     signal PC : std_logic_vector(7 downto 0);
     signal instruction, instruction_next  : std_logic_vector(31 downto 0);
+    signal COUNTER_ENABLE : std_logic;
     
     signal LI_A, LI_OP, LI_B, LI_C : std_logic_vector(7 downto 0);
     signal DI_A, DI_OP, DI_B, DI_C : std_logic_vector(7 downto 0);
@@ -52,7 +53,7 @@ begin
         port map(
             clock => clk,
             direction => '1',
-            enable => '1',
+            enable => COUNTER_ENABLE,
             clear => rst,
             value => PC
         );
@@ -61,14 +62,15 @@ begin
         port map(
             clock => clk,
             instruction => instruction_next,
-            LIDI => DI_OP,
-            LIDI_addr => DI_B,
-            DIEX => EX_OP,
-            DIEX_addr => EX_B,
-            EXMEM => MEM_OP,
-            EXMEM_addr => MEM_B,
-            MEMRE => RE_OP,
-            MEMRE_addr => RE_B
+            LIDI => instruction(31 downto 24),
+            LIDI_addr => instruction(23 downto 16),
+            DIEX => DI_OP,
+            DIEX_addr => DI_A,
+            EXMEM => EX_OP,
+            EXMEM_addr => EX_A,
+            MEMRE => MEM_OP,
+            MEMRE_addr => MEM_A,
+            enable_counter => COUNTER_ENABLE
         );
 
     -- Instruction Memory
@@ -130,7 +132,7 @@ begin
         );
         
     -- MUX of EX stage
-    EX_MUX: entity work.MUX_unit
+    EX_MUX: entity work.EX_MUX_unit
         port map(
             B_in => EX_B,
             OP_in => EX_OP,

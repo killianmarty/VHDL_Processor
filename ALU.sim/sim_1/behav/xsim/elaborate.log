@@ -20,6 +20,7 @@ Compiling architecture rom of entity xil_defaultlib.instr_memory [instr_memory_d
 Compiling architecture behavioral of entity xil_defaultlib.pipeline [pipeline_default]
 Compiling architecture behavioral of entity xil_defaultlib.MUX_unit [mux_unit_default]
 Compiling architecture behavior of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture behavioral of entity xil_defaultlib.EX_MUX_unit [ex_mux_unit_default]
 Compiling architecture behavioral of entity xil_defaultlib.LC [lc_default]
 Compiling architecture rtl of entity xil_defaultlib.Registers_bench [registers_bench_default]
 Compiling architecture rtl of entity xil_defaultlib.processor [processor_default]

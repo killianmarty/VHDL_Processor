@@ -31,22 +31,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MUX_unit is
+entity EX_MUX_unit is
     Port (
         OP_in  : in  std_logic_vector(7 downto 0);
         B_in  : in  std_logic_vector(7 downto 0);
         data_in  : in  std_logic_vector(7 downto 0);
         data_out : out  std_logic_vector(7 downto 0)
     );
-end MUX_unit;
+end EX_MUX_unit;
 
-architecture Behavioral of MUX_unit is
+architecture Behavioral of EX_MUX_unit is
 
 begin
 
     with OP_in select data_out <=
         B_in when x"06",
-        data_in when x"05",
+        B_in when x"05",
         data_in when x"01",
         data_in when x"02",
         data_in when x"03",

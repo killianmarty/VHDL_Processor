@@ -11,25 +11,85 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="451.131 ns"></ZoomEndTime>
+      <ZoomEndTime time="74.951 ns"></ZoomEndTime>
       <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="157"></NameColumnWidth>
-      <ValueColumnWidth column_width="132"></ValueColumnWidth>
+      <NameColumnWidth column_width="198"></NameColumnWidth>
+      <ValueColumnWidth column_width="151"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="4" />
-   <wvobject type="logic" fp_name="/tb_processor/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
+   <WVObjectSize size="19" />
    <wvobject type="logic" fp_name="/tb_processor/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/tb_processor/clk_period">
-      <obj_property name="ElementShortName">clk_period</obj_property>
-      <obj_property name="ObjectShortName">clk_period</obj_property>
+   <wvobject type="logic" fp_name="/tb_processor/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_processor/uut/program_counter/enable">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/instr_mem/INSTR">
+      <obj_property name="ElementShortName">INSTR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/instr_mem/INSTR_NEXT">
+      <obj_property name="ElementShortName">INSTR_NEXT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR_NEXT[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/OP_in">
+      <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/A_in">
+      <obj_property name="ElementShortName">A_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/B_in">
+      <obj_property name="ElementShortName">B_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/C_in">
+      <obj_property name="ElementShortName">C_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/OP_in">
+      <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/A_in">
+      <obj_property name="ElementShortName">A_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/B_in">
+      <obj_property name="ElementShortName">B_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/OP_in">
+      <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/A_in">
+      <obj_property name="ElementShortName">A_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/B_in">
+      <obj_property name="ElementShortName">B_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/MEMRE_stage/OP_in">
+      <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/MEMRE_stage/A_in">
+      <obj_property name="ElementShortName">A_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/MEMRE_stage/B_in">
+      <obj_property name="ElementShortName">B_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/regfile/regfile">
       <obj_property name="ElementShortName">regfile[0:15][7:0]</obj_property>
