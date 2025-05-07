@@ -40,6 +40,8 @@ architecture rtl of processor is
     signal MEM_A, MEM_OP, MEM_B, MEM_C : std_logic_vector(7 downto 0);
     signal RE_A, RE_OP, RE_B, RE_C : std_logic_vector(7 downto 0);
     signal QA_DI_MUX, MUX_DI : std_logic_vector(7 downto 0);
+    signal ALU_MUX, EX_MUX_B: std_logic_vector(7 downto 0);
+    signal REG_C: std_logic_vector(7 downto 0);
     signal LC_REG : std_logic;
     
 begin
@@ -86,7 +88,7 @@ begin
             A_in   => instruction(23 downto 16),
             OP_in  => instruction(31 downto 24),
             B_in   => instruction(15 downto 8),
-            C_in   => (others => '0'),
+            C_in   => instruction(7 downto 0),
             A_out  => DI_A,
             OP_out => DI_OP,
             B_out  => DI_B,
@@ -110,12 +112,30 @@ begin
             A_in   => DI_A,
             OP_in  => DI_OP,
             B_in   => MUX_DI,
-            C_in   => (others => '0'),
+            C_in   => REG_C,
             A_out  => EX_A,
             OP_out => EX_OP,
             B_out  => EX_B,
             C_out  => EX_C,
             enable => '1'
+        );
+        
+    -- ALU
+    ALU: entity work.ALU
+        port map(
+            A => EX_B,
+            B => EX_C,
+            S => ALU_MUX,
+            Op => EX_OP
+        );
+        
+    -- MUX of EX stage
+    EX_MUX: entity work.MUX_unit
+        port map(
+            B_in => EX_B,
+            OP_in => EX_OP,
+            data_in => ALU_MUX,
+            data_out => EX_MUX_B
         );
         
     -- EX/MEM Pipeline Register
@@ -125,7 +145,7 @@ begin
             flush  => rst,
             A_in   => EX_A,
             OP_in  => EX_OP,
-            B_in   => EX_B,
+            B_in   => EX_MUX_B,
             C_in   => (others => '0'),
             A_out  => MEM_A,
             OP_out => MEM_OP,
@@ -167,7 +187,8 @@ begin
             WE => LC_REG,
             QA => QA_DI_MUX,
             A => DI_B,
-            B => (others => '0')
+            B => DI_C,
+            QB => REG_C
         );
 
 end rtl;

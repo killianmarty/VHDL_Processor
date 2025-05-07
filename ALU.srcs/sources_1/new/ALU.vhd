@@ -27,7 +27,7 @@ USE ieee.std_logic_unsigned.ALL;
 ENTITY ALU IS
     PORT (
         A, B : IN std_logic_vector(7 DOWNTO 0);
-        Op   : IN std_logic_vector(3 DOWNTO 0);
+        Op   : IN std_logic_vector(7 DOWNTO 0);
         S    : OUT std_logic_vector(7 DOWNTO 0);
         C, O, N, Z : OUT std_logic
     );
@@ -38,14 +38,14 @@ ARCHITECTURE Behavior OF ALU IS
 BEGIN
   
     with Op select S_temp <=
-        (x"00" & A) + (x"00" & B) when "0001",
-        (x"00" & A) - (x"00" & B) when "0011",
-        (A) * (B) when "0010",
-        std_logic_vector(resize(unsigned(A) / unsigned(B), 16)) when "0100",
-        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) < unsigned(B)), 16)) when "1001",
-        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) > unsigned(B)), 16)) when "1010",
-        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) = unsigned(B)), 16)) when "1011",
-        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) /= unsigned(B)), 16)) when "1100",
+        (x"00" & A) + (x"00" & B) when x"01",
+        (x"00" & A) - (x"00" & B) when x"03",
+        (A) * (B) when x"02",
+        std_logic_vector(resize(unsigned(A) / unsigned(B), 16)) when x"04",
+        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) < unsigned(B)), 16)) when x"0A",
+        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) > unsigned(B)), 16)) when x"0B",
+        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) = unsigned(B)), 16)) when x"0C",
+        std_logic_vector(to_unsigned(boolean'pos(unsigned(A) /= unsigned(B)), 16)) when x"0D",
 --        (x"00" & A) AND (x"00" & B) when "1001",
 --        (x"00" & A) OR (x"00" & B) when "1000",
 --        (x"00" & A) XOR (x"00" & B) when "0101",

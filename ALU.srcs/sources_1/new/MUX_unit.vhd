@@ -47,6 +47,7 @@ begin
     with OP_in select data_out <=
         B_in when x"06",
         data_in when x"05",
+        data_in when x"01",
         (others => '0') when others;
 
 end Behavioral;

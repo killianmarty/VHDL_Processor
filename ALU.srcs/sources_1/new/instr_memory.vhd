@@ -39,6 +39,7 @@ architecture rom of instr_memory is
         0 => x"06011200",
         1 => x"0602AB00",
         2 => x"05030100",
+        7 => x"01040102",
         16 => x"0000DEAD",
         255 => x"0000BEEF",
         others => x"00000000"

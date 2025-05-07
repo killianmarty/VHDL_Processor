@@ -42,6 +42,9 @@ begin
                 
             when x"05" => --COP
                 w <= '1';
+                
+            when x"01" => --ADD
+                w <= '1';
 
             when others =>
                 null;
