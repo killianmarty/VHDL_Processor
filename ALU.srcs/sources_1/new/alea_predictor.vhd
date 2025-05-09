@@ -43,7 +43,7 @@ end alea_predictor;
 
 architecture Behavioral of alea_predictor is
 begin
-    process(instruction)
+    process(clock)
     begin
         if instruction(31 downto 24) = x"05" then
             if (LIDI = x"06" and LIDI_addr = instruction(15 downto 8)) or
@@ -51,6 +51,7 @@ begin
                (EXMEM = x"06" and EXMEM_addr = instruction(15 downto 8)) or
                (MEMRE = x"06" and MEMRE_addr = instruction(15 downto 8)) then
                 enable_counter <= '0';
+                
             else
                 enable_counter <= '1';
             end if;

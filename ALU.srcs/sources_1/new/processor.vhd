@@ -77,6 +77,7 @@ begin
     instr_mem: entity work.instr_memory
         port map(
             clk  => clk,
+            ENABLED => COUNTER_ENABLE,
             ADDR => PC,
             INSTR => instruction,
             INSTR_NEXT => instruction_next
