@@ -45,12 +45,10 @@ architecture Behavioral of EX_MUX_unit is
 begin
 
     with OP_in select data_out <=
-        B_in when x"06",
-        B_in when x"05",
         data_in when x"01",
         data_in when x"02",
         data_in when x"03",
         data_in when x"04",
-        (others => '0') when others;
+        B_in when others;
 
 end Behavioral;

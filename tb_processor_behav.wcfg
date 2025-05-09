@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="162,490 ps"></ZoomStartTime>
-      <ZoomEndTime time="164,406 ps"></ZoomEndTime>
-      <Cursor1Time time="163,390 ps"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="89.051 ns"></ZoomEndTime>
+      <Cursor1Time time="24.650 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="198"></NameColumnWidth>
-      <ValueColumnWidth column_width="143"></ValueColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="21" />
    <wvobject type="logic" fp_name="/tb_processor/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -42,22 +42,6 @@
    <wvobject type="array" fp_name="/tb_processor/uut/instr_mem/INSTR_NEXT">
       <obj_property name="ElementShortName">INSTR_NEXT[31:0]</obj_property>
       <obj_property name="ObjectShortName">INSTR_NEXT[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_processor/uut/alea_predictor/LIDI">
-      <obj_property name="ElementShortName">LIDI[7:0]</obj_property>
-      <obj_property name="ObjectShortName">LIDI[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_processor/uut/alea_predictor/DIEX">
-      <obj_property name="ElementShortName">DIEX[7:0]</obj_property>
-      <obj_property name="ObjectShortName">DIEX[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_processor/uut/alea_predictor/EXMEM">
-      <obj_property name="ElementShortName">EXMEM[7:0]</obj_property>
-      <obj_property name="ObjectShortName">EXMEM[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_processor/uut/alea_predictor/MEMRE">
-      <obj_property name="ElementShortName">MEMRE[7:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMRE[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/OP_in">
       <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
@@ -114,5 +98,9 @@
    <wvobject type="array" fp_name="/tb_processor/uut/regfile/regfile">
       <obj_property name="ElementShortName">regfile[0:15][7:0]</obj_property>
       <obj_property name="ObjectShortName">regfile[0:15][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/RAM">
+      <obj_property name="ElementShortName">RAM[255:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM[255:0][7:0]</obj_property>
    </wvobject>
 </wave_config>

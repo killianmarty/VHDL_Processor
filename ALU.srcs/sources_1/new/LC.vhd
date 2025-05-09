@@ -23,14 +23,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity LC is
+entity RE_LC is
     Port (
         OP         : in  std_logic_vector(7 downto 0);  -- Opcode de l'instruction
         W   : out std_logic
     );
-end LC;
+end RE_LC;
 
-architecture Behavioral of LC is
+architecture Behavioral of RE_LC is
 begin
     process(OP)
     begin
@@ -49,6 +49,8 @@ begin
                 W <= '1';
             when x"04" => --DIV
                 W <= '1'; 
+            when x"10" => --LOAD
+                W <= '1';
                 
             when others =>
                 null;

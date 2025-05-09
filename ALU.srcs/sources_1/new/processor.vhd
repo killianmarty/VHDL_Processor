@@ -43,7 +43,9 @@ architecture rtl of processor is
     signal QA_DI_MUX, MUX_DI : std_logic_vector(7 downto 0);
     signal ALU_MUX, EX_MUX_B: std_logic_vector(7 downto 0);
     signal REG_C: std_logic_vector(7 downto 0);
+    signal DATAMEM_MUX, DATAMEM_MUX_B: std_logic_vector(7 downto 0);
     signal LC_REG : std_logic;
+    signal MEM_LC_DATAMEM : std_logic;
     
 begin
     ----------------------------------------------------------------
@@ -157,6 +159,31 @@ begin
             enable => '1'
         );
         
+     -- MEM LC
+     MEM_LC: entity work.MEM_LC
+        port map(
+            OP => MEM_OP,
+            RW => MEM_LC_DATAMEM
+        );
+        
+     -- DATA MEMORY
+     DATA_MEM: entity work.data_memory
+        port map(
+            RW => MEM_LC_DATAMEM,
+            ADDR => MEM_B,
+            IN_DATA => x"00",
+            OUT_DATA => DATAMEM_MUX
+        );
+        
+     -- MEM MUX
+     MEM_MUX: entity work.MEM_MUX_unit
+        port map(
+            B_in => MEM_B,
+            OP_in => MEM_OP,
+            data_in => DATAMEM_MUX,
+            data_out => DATAMEM_MUX_B
+        );
+        
         
      -- MEM/RE Pipeline Register
      MEMRE_stage: entity work.pipeline
@@ -165,7 +192,7 @@ begin
             flush  => rst,
             A_in   => MEM_A,
             OP_in  => MEM_OP,
-            B_in   => MEM_B,
+            B_in   => DATAMEM_MUX_B,
             C_in   => (others => '0'),
             A_out  => RE_A,
             OP_out => RE_OP,
@@ -174,7 +201,7 @@ begin
             enable => '1'
         );
         
-    LC_unit: entity work.LC
+    RE_LC_unit: entity work.RE_LC
         port map(
             OP => RE_OP,
             W => LC_REG

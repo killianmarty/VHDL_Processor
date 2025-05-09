@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 05/07/2025 10:16:33 AM
+-- Create Date: 05/09/2025 02:24:53 PM
 -- Design Name: 
--- Module Name: MUX_unit - Behavioral
+-- Module Name: MEM_LC - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,25 +31,31 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity DI_MUX_unit is
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity MEM_LC is
     Port (
-        OP_in  : in  std_logic_vector(7 downto 0);
-        B_in  : in  std_logic_vector(7 downto 0);
-        data_in  : in  std_logic_vector(7 downto 0);
-        data_out : out  std_logic_vector(7 downto 0)
+        OP         : in  std_logic_vector(7 downto 0);
+        RW   : out std_logic
     );
-end DI_MUX_unit;
+end MEM_LC;
 
-architecture Behavioral of DI_MUX_unit is
-
+architecture Behavioral of MEM_LC is
 begin
+    process(OP)
+    begin
+        RW <= '1';
 
-    with OP_in select data_out <=
-        data_in when x"05",
-        data_in when x"01",
-        data_in when x"02",
-        data_in when x"03",
-        data_in when x"04",
-        B_in when others;
-
+        case OP is
+            when x"10" =>  -- LOAD
+                RW <= '1';
+            when x"11" => -- STORE
+                RW <= '0';
+                
+            when others =>
+                null;
+        end case;
+    end process;
 end Behavioral;
