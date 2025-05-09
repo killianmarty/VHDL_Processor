@@ -37,14 +37,13 @@ architecture rom of instr_memory is
     type rom_t is array (255 downto 0) of std_logic_vector(31 downto 0);
     constant ROM_CONTENT : rom_t := (
         1 => x"06011200",
-        2 => x"0602AB00",
-        3 => x"05030200",
-        4 => x"06022600",
-        5 => x"01030102",
-        6 => x"10000100",
-        9 => x"11030100",
-        10 => x"06072300",
-        11 => x"06082400",
+        2 => x"06021300",
+        3 => x"0C030102",
+        4 => x"08090300",
+        5 => x"06040100",
+        6 => x"06040200",
+        9 => x"06053000",
+        10 => x"06055000",
         others => x"00000000"
     );
     signal ROM : rom_t := ROM_CONTENT;

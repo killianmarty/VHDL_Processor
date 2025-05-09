@@ -30,6 +30,8 @@ entity counter is
            direction: in STD_LOGIC;
            clear: in STD_LOGIC;
            clock : in STD_LOGIC;
+           update : in std_logic;
+           updated_value : in std_logic_vector(7 downto 0);
            value : inout STD_LOGIC_VECTOR(7 downto 0));
 end counter;
 
@@ -43,6 +45,8 @@ begin
         else
             value <= "11111111";
         end if;
+    elsif update = '1' then
+        value <= updated_value;
     elsif rising_edge(clock) then
         if enable = '1' then
             if direction = '1' then

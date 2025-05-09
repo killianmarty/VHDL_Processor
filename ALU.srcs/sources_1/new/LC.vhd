@@ -51,6 +51,14 @@ begin
                 W <= '1'; 
             when x"10" => --LOAD
                 W <= '1';
+            when x"0A" => --INF
+                W <= '1';
+            when x"0B" => --SUP
+                W <= '1';
+            when x"0C" => --EQ
+                W <= '1';
+            when x"0D" => --NEQ
+                W <= '1';
                 
             when others =>
                 null;

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 05/07/2025 10:16:33 AM
+-- Create Date: 05/09/2025 04:26:27 PM
 -- Design Name: 
--- Module Name: MUX_unit - Behavioral
+-- Module Name: Branch_unit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,31 +31,31 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity DI_MUX_unit is
+entity Branch_unit is
     Port (
+        clk: in std_logic;
         OP_in  : in  std_logic_vector(7 downto 0);
-        B_in  : in  std_logic_vector(7 downto 0);
-        data_in  : in  std_logic_vector(7 downto 0);
-        data_out : out  std_logic_vector(7 downto 0)
+        A_in, B_in  : in  std_logic_vector(7 downto 0);
+        PC_out : out  std_logic_vector(7 downto 0);
+        Jump : out std_logic
     );
-end DI_MUX_unit;
+end Branch_unit;
 
-architecture Behavioral of DI_MUX_unit is
+architecture Behavioral of Branch_unit is
 
 begin
-
-    with OP_in select data_out <=
-        data_in when x"05",
-        data_in when x"01",
-        data_in when x"02",
-        data_in when x"03",
-        data_in when x"04",
-        data_in when x"11",
-        data_in when x"08",
-        data_in when x"0A",
-        data_in when x"0B",
-        data_in when x"0C",
-        data_in when x"0D", 
-        B_in when others;
-
+--    process(clk)
+--    begin
+--        if rising_edge(clk) then
+--            if ((OP_in = x"07") or (OP_in = x"08" and B_in = x"00")) then
+--                PC_out <= A_in;
+--                Jump <= '1';
+--            else
+--                PC_out <= A_in;
+--                Jump <= '0';
+--            end if;
+--        end if;
+--    end process;
+    PC_out <= A_in;
+    Jump <= '1' when ((OP_in = x"07") or (OP_in = x"08" and B_in = x"00")) else '0';
 end Behavioral;

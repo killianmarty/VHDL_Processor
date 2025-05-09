@@ -49,6 +49,10 @@ begin
         data_in when x"02",
         data_in when x"03",
         data_in when x"04",
+        data_in when x"0A",
+        data_in when x"0B",
+        data_in when x"0C",
+        data_in when x"0D", 
         B_in when others;
 
 end Behavioral;

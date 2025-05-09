@@ -47,6 +47,9 @@ architecture rtl of processor is
     signal LC_REG : std_logic;
     signal MEM_LC_DATAMEM : std_logic;
     
+    signal JUMP_PC : std_logic_vector(7 downto 0);
+    signal JUMP : std_logic;
+    
 begin
     ----------------------------------------------------------------
     -- Fetch Stage
@@ -57,7 +60,9 @@ begin
             direction => '1',
             enable => COUNTER_ENABLE,
             clear => rst,
-            value => PC
+            value => PC,
+            update => JUMP,
+            updated_value => JUMP_PC
         );
     
     alea_predictor: entity work.alea_predictor
@@ -89,7 +94,7 @@ begin
     LIDI_stage: entity work.pipeline
         port map(
             clk    => clk,
-            flush  => rst,
+            flush  => JUMP,
             A_in   => instruction(23 downto 16),
             OP_in  => instruction(31 downto 24),
             B_in   => instruction(15 downto 8),
@@ -113,7 +118,7 @@ begin
     DIEX_stage: entity work.pipeline
         port map(
             clk    => clk,
-            flush  => rst,
+            flush  => JUMP,
             A_in   => DI_A,
             OP_in  => DI_OP,
             B_in   => MUX_DI,
@@ -123,6 +128,17 @@ begin
             B_out  => EX_B,
             C_out  => EX_C,
             enable => '1'
+        );
+        
+    -- Branch unit
+    Branch_unit: entity work.Branch_unit
+        port map(
+            clk => clk,
+            OP_in => EX_OP,
+            A_in => EX_A,
+            B_in => EX_B,
+            PC_out => JUMP_PC,
+            Jump => JUMP
         );
         
     -- ALU
