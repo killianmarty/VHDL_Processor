@@ -18,7 +18,7 @@ Compiling architecture behavioral of entity xil_defaultlib.counter [counter_defa
 Compiling architecture behavioral of entity xil_defaultlib.alea_predictor [alea_predictor_default]
 Compiling architecture rom of entity xil_defaultlib.instr_memory [instr_memory_default]
 Compiling architecture behavioral of entity xil_defaultlib.pipeline [pipeline_default]
-Compiling architecture behavioral of entity xil_defaultlib.MUX_unit [mux_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.DI_MUX_unit [di_mux_unit_default]
 Compiling architecture behavior of entity xil_defaultlib.ALU [alu_default]
 Compiling architecture behavioral of entity xil_defaultlib.EX_MUX_unit [ex_mux_unit_default]
 Compiling architecture behavioral of entity xil_defaultlib.LC [lc_default]

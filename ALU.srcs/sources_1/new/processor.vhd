@@ -99,7 +99,7 @@ begin
             enable => '1'
         );
         
-    DI_MUX: entity work.MUX_unit
+    DI_MUX: entity work.DI_MUX_unit
         port map(
             OP_in => DI_OP,
             B_in => DI_B,

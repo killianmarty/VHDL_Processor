@@ -31,16 +31,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MUX_unit is
+entity DI_MUX_unit is
     Port (
         OP_in  : in  std_logic_vector(7 downto 0);
         B_in  : in  std_logic_vector(7 downto 0);
         data_in  : in  std_logic_vector(7 downto 0);
         data_out : out  std_logic_vector(7 downto 0)
     );
-end MUX_unit;
+end DI_MUX_unit;
 
-architecture Behavioral of MUX_unit is
+architecture Behavioral of DI_MUX_unit is
 
 begin
 
