@@ -42,6 +42,9 @@ architecture rom of instr_memory is
         4 => x"06022600",
         5 => x"01030102",
         6 => x"10000100",
+        9 => x"11030100",
+        10 => x"06072300",
+        11 => x"06082400",
         others => x"00000000"
     );
     signal ROM : rom_t := ROM_CONTENT;

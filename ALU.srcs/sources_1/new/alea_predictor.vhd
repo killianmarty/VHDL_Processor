@@ -45,12 +45,12 @@ architecture Behavioral of alea_predictor is
     
     function in_opcode_set(value : std_logic_vector(7 downto 0)) return boolean is
     begin
-        return (value = x"05" or value = x"01" or value = x"02" or value = x"03" or value = x"04");
+        return (value = x"05" or value = x"01" or value = x"02" or value = x"03" or value = x"04" or value = x"11");
     end function;
 
     function in_mem_access_set(value : std_logic_vector(7 downto 0)) return boolean is
     begin
-        return (value = x"06" or value = x"01" or value = x"02" or value = x"03" or value = x"04");
+        return (value = x"06" or value = x"01" or value = x"02" or value = x"03" or value = x"04" or value = x"10");
     end function;
 
 begin

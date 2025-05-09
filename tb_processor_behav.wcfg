@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="89.051 ns"></ZoomEndTime>
-      <Cursor1Time time="24.650 ns"></Cursor1Time>
+      <ZoomStartTime time="159.570 ns"></ZoomStartTime>
+      <ZoomEndTime time="256.121 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="198"></NameColumnWidth>
-      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="25" />
    <wvobject type="logic" fp_name="/tb_processor/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -99,8 +99,25 @@
       <obj_property name="ElementShortName">regfile[0:15][7:0]</obj_property>
       <obj_property name="ObjectShortName">regfile[0:15][7:0]</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/tb_processor/uut/DATA_MEM/RW">
+      <obj_property name="ElementShortName">RW</obj_property>
+      <obj_property name="ObjectShortName">RW</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/ADDR">
+      <obj_property name="ElementShortName">ADDR[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/IN_DATA">
+      <obj_property name="ElementShortName">IN_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IN_DATA[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/OUT_DATA">
+      <obj_property name="ElementShortName">OUT_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_DATA[7:0]</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/RAM">
-      <obj_property name="ElementShortName">RAM[255:0][7:0]</obj_property>
-      <obj_property name="ObjectShortName">RAM[255:0][7:0]</obj_property>
+      <obj_property name="ElementShortName">RAM[0:255][7:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM[0:255][7:0]</obj_property>
+      <obj_property name="Reversed">false</obj_property>
    </wvobject>
 </wave_config>

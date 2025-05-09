@@ -43,7 +43,7 @@ architecture rtl of processor is
     signal QA_DI_MUX, MUX_DI : std_logic_vector(7 downto 0);
     signal ALU_MUX, EX_MUX_B: std_logic_vector(7 downto 0);
     signal REG_C: std_logic_vector(7 downto 0);
-    signal DATAMEM_MUX, DATAMEM_MUX_B: std_logic_vector(7 downto 0);
+    signal DATAMEM_MUX, DATAMEM_MUX_B, MEM_STORE_MUX_DAT_MEM: std_logic_vector(7 downto 0);
     signal LC_REG : std_logic;
     signal MEM_LC_DATAMEM : std_logic;
     
@@ -159,6 +159,15 @@ begin
             enable => '1'
         );
         
+     -- MEM STORE MUX
+     MEM_STORE_MUX: entity work.MEM_STORE_MUX_unit
+        port map(
+            OP_in => MEM_OP,
+            A_in => MEM_A,
+            B_in => MEM_B,
+            data_out => MEM_STORE_MUX_DAT_MEM
+        );
+        
      -- MEM LC
      MEM_LC: entity work.MEM_LC
         port map(
@@ -169,9 +178,10 @@ begin
      -- DATA MEMORY
      DATA_MEM: entity work.data_memory
         port map(
+            CLK => clk,
             RW => MEM_LC_DATAMEM,
-            ADDR => MEM_B,
-            IN_DATA => x"00",
+            ADDR => MEM_STORE_MUX_DAT_MEM,
+            IN_DATA => MEM_B,
             OUT_DATA => DATAMEM_MUX
         );
         

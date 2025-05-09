@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 05/07/2025 10:16:33 AM
+-- Create Date: 05/09/2025 03:13:40 PM
 -- Design Name: 
--- Module Name: MUX_unit - Behavioral
+-- Module Name: MEM_STORE_MUX_unit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,26 +31,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity DI_MUX_unit is
+entity MEM_STORE_MUX_unit is
     Port (
         OP_in  : in  std_logic_vector(7 downto 0);
-        B_in  : in  std_logic_vector(7 downto 0);
-        data_in  : in  std_logic_vector(7 downto 0);
+        A_in, B_in  : in  std_logic_vector(7 downto 0);
         data_out : out  std_logic_vector(7 downto 0)
     );
-end DI_MUX_unit;
+end MEM_STORE_MUX_unit;
 
-architecture Behavioral of DI_MUX_unit is
+architecture Behavioral of MEM_STORE_MUX_unit is
 
 begin
 
     with OP_in select data_out <=
-        data_in when x"05",
-        data_in when x"01",
-        data_in when x"02",
-        data_in when x"03",
-        data_in when x"04",
-        data_in when x"11",
+        A_in when x"11",
         B_in when others;
 
 end Behavioral;

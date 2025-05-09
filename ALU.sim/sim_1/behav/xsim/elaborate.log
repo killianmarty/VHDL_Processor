@@ -21,6 +21,7 @@ Compiling architecture behavioral of entity xil_defaultlib.pipeline [pipeline_de
 Compiling architecture behavioral of entity xil_defaultlib.DI_MUX_unit [di_mux_unit_default]
 Compiling architecture behavior of entity xil_defaultlib.ALU [alu_default]
 Compiling architecture behavioral of entity xil_defaultlib.EX_MUX_unit [ex_mux_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.MEM_STORE_MUX_unit [mem_store_mux_unit_default]
 Compiling architecture behavioral of entity xil_defaultlib.MEM_LC [mem_lc_default]
 Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
 Compiling architecture behavioral of entity xil_defaultlib.MEM_MUX_unit [mem_mux_unit_default]

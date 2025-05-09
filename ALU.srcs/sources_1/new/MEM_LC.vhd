@@ -46,8 +46,6 @@ architecture Behavioral of MEM_LC is
 begin
     process(OP)
     begin
-        RW <= '1';
-
         case OP is
             when x"10" =>  -- LOAD
                 RW <= '1';
@@ -55,7 +53,7 @@ begin
                 RW <= '0';
                 
             when others =>
-                null;
+                RW <= '1';
         end case;
     end process;
 end Behavioral;
