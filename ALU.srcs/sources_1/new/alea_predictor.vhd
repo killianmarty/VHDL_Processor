@@ -42,22 +42,43 @@ entity alea_predictor is
 end alea_predictor;
 
 architecture Behavioral of alea_predictor is
+    
+    function in_opcode_set(value : std_logic_vector(7 downto 0)) return boolean is
+    begin
+        return (value = x"05" or value = x"01" or value = x"02" or value = x"03" or value = x"04");
+    end function;
+
+    function in_mem_access_set(value : std_logic_vector(7 downto 0)) return boolean is
+    begin
+        return (value = x"06" or value = x"01" or value = x"02" or value = x"03" or value = x"04");
+    end function;
+
 begin
     process(clock)
     begin
-        if instruction(31 downto 24) = x"05" then
-            if (LIDI = x"06" and LIDI_addr = instruction(15 downto 8)) or
-               (DIEX = x"06" and DIEX_addr = instruction(15 downto 8)) or
-               (EXMEM = x"06" and EXMEM_addr = instruction(15 downto 8)) or
-               (MEMRE = x"06" and MEMRE_addr = instruction(15 downto 8)) then
+        
+        if in_opcode_set(instruction(31 downto 24)) then
+            if (in_mem_access_set(LIDI) and 
+                ((LIDI_addr = instruction(15 downto 8)) or (LIDI_addr = instruction(7 downto 0)))) or
+        
+               (in_mem_access_set(DIEX) and 
+                ((DIEX_addr = instruction(15 downto 8)) or (DIEX_addr = instruction(7 downto 0)))) or
+        
+               (in_mem_access_set(EXMEM) and 
+                ((EXMEM_addr = instruction(15 downto 8)) or (EXMEM_addr = instruction(7 downto 0)))) or
+        
+               (in_mem_access_set(MEMRE) and 
+                ((MEMRE_addr = instruction(15 downto 8)) or (MEMRE_addr = instruction(7 downto 0)))) then
+        
                 enable_counter <= '0';
-                
             else
                 enable_counter <= '1';
             end if;
         else
             enable_counter <= '1';
-        end if;
+        end if; 
+        
     end process;
 end Behavioral;
+
 
