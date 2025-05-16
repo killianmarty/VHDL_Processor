@@ -37,7 +37,7 @@ begin
         W <= '0';
 
         case OP is
-            when "00000110" =>  -- AFC
+            when x"06" =>  -- AFC
                 W <= '1';
             when x"05" => --COP
                 W <= '1';

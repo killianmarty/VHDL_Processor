@@ -43,7 +43,7 @@ architecture rtl of processor is
     signal QA_DI_MUX, MUX_DI : std_logic_vector(7 downto 0);
     signal ALU_MUX, EX_MUX_B: std_logic_vector(7 downto 0);
     signal REG_C: std_logic_vector(7 downto 0);
-    signal DATAMEM_MUX, DATAMEM_MUX_B, MEM_STORE_MUX_DAT_MEM: std_logic_vector(7 downto 0);
+    signal DATAMEM_MUX, DATAMEM_MUX_RE, MEM_STORE_MUX_DAT_MEM: std_logic_vector(7 downto 0);
     signal LC_REG : std_logic;
     signal MEM_LC_DATAMEM : std_logic;
     
@@ -68,6 +68,7 @@ begin
     alea_predictor: entity work.alea_predictor
         port map(
             clock => clk,
+            rst => JUMP,
             instruction => instruction_next,
             LIDI => instruction(31 downto 24),
             LIDI_addr => instruction(23 downto 16),
@@ -205,9 +206,11 @@ begin
      MEM_MUX: entity work.MEM_MUX_unit
         port map(
             B_in => MEM_B,
-            OP_in => MEM_OP,
+            OP_in => RE_OP,
             data_in => DATAMEM_MUX,
-            data_out => DATAMEM_MUX_B
+            data_out => DATAMEM_MUX_RE,
+            clk => clk,
+            flush => rst
         );
         
         
@@ -218,7 +221,7 @@ begin
             flush  => rst,
             A_in   => MEM_A,
             OP_in  => MEM_OP,
-            B_in   => DATAMEM_MUX_B,
+            B_in   => (others => '0'),
             C_in   => (others => '0'),
             A_out  => RE_A,
             OP_out => RE_OP,
@@ -239,7 +242,7 @@ begin
             clk     => clk,
             rst     => rst,
             W => RE_A,
-            DATA => RE_B,
+            DATA => DATAMEM_MUX_RE,
             WE => LC_REG,
             QA => QA_DI_MUX,
             A => DI_B,

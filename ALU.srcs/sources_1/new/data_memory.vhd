@@ -36,7 +36,6 @@ end data_memory;
 architecture rtl of data_memory is
     type mem_t is array (0 to 255) of std_logic_vector(7 downto 0);
     signal RAM : mem_t := (
-        1 => x"08",
         others => x"00"
     );
 begin

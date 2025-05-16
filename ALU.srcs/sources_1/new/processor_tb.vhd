@@ -30,7 +30,7 @@ architecture test of tb_processor is
     signal rst     : std_logic := '1';
 
     -- Clock period
-    constant clk_period : time := 10 ns;
+    constant clk_period : time := 1 ns;
 
     -- Component under test
     component processor
@@ -66,11 +66,11 @@ begin
     begin
         -- Reset the processor
         rst <= '1';
-        wait for 20 ns;
+        wait for 1 ns;
         rst <= '0';
 
         -- Run simulation for a while
-        wait for 500 ns;
+        wait for 1000 ns;
 
     end process;
 

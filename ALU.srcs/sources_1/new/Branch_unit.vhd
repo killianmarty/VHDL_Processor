@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -44,18 +45,6 @@ end Branch_unit;
 architecture Behavioral of Branch_unit is
 
 begin
---    process(clk)
---    begin
---        if rising_edge(clk) then
---            if ((OP_in = x"07") or (OP_in = x"08" and B_in = x"00")) then
---                PC_out <= A_in;
---                Jump <= '1';
---            else
---                PC_out <= A_in;
---                Jump <= '0';
---            end if;
---        end if;
---    end process;
-    PC_out <= A_in;
+    PC_out <= std_logic_vector(unsigned(A_in));
     Jump <= '1' when ((OP_in = x"07") or (OP_in = x"08" and B_in = x"00")) else '0';
 end Behavioral;

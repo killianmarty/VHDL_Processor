@@ -33,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity alea_predictor is
     port(
+        rst : in std_logic;
         clock : in std_logic;
         instruction: in std_logic_vector(31 downto 0);
         LIDI, DIEX, EXMEM, MEMRE : in std_logic_vector(7 downto 0);
@@ -45,38 +46,41 @@ architecture Behavioral of alea_predictor is
     
     function in_opcode_set(value : std_logic_vector(7 downto 0)) return boolean is
     begin
-        return (value = x"05" or value = x"01" or value = x"02" or value = x"03" or value = x"04" or value = x"0A" or value = x"0B" or value = x"0C" or value = x"0D" or value = x"11" or value = x"08");
+        return (value = x"05" or value = x"01" or value = x"02" or value = x"03" or value = x"04" or value = x"07" or value = x"0A" or value = x"0B" or value = x"0C" or value = x"0D" or value = x"10" or value = x"11" or value = x"08");
     end function;
 
     function in_mem_access_set(value : std_logic_vector(7 downto 0)) return boolean is
     begin
-        return (value = x"06" or value = x"01" or value = x"02" or value = x"03" or value = x"04" or value = x"10" or value = x"0A" or value = x"0B" or value = x"0C" or value = x"0D");
+        return (value =x"05" or value = x"06" or value = x"01" or value = x"02" or value = x"03" or value = x"04" or value = x"10" or value = x"11" or value = x"0A" or value = x"0B" or value = x"0C" or value = x"0D");
     end function;
 
 begin
     process(clock)
     begin
-        
-        if in_opcode_set(instruction(31 downto 24)) then
-            if (in_mem_access_set(LIDI) and 
-                ((LIDI_addr = instruction(15 downto 8)) or (LIDI_addr = instruction(7 downto 0)))) or
-        
-               (in_mem_access_set(DIEX) and 
-                ((DIEX_addr = instruction(15 downto 8)) or (DIEX_addr = instruction(7 downto 0)))) or
-        
-               (in_mem_access_set(EXMEM) and 
-                ((EXMEM_addr = instruction(15 downto 8)) or (EXMEM_addr = instruction(7 downto 0)))) or
-        
-               (in_mem_access_set(MEMRE) and 
-                ((MEMRE_addr = instruction(15 downto 8)) or (MEMRE_addr = instruction(7 downto 0)))) then
-        
-                enable_counter <= '0';
+        if rst = '1' then 
+            enable_counter <= '1';
+        elsif falling_edge(clock) then
+            if in_opcode_set(instruction(31 downto 24)) then
+                if (in_mem_access_set(LIDI) and 
+                    ((LIDI_addr = instruction(15 downto 8)) or (LIDI_addr = instruction(7 downto 0)))) or
+            
+                   (in_mem_access_set(DIEX) and 
+                    ((DIEX_addr = instruction(15 downto 8)) or (DIEX_addr = instruction(7 downto 0)))) or
+            
+                   (in_mem_access_set(EXMEM) and 
+                    ((EXMEM_addr = instruction(15 downto 8)) or (EXMEM_addr = instruction(7 downto 0)))) or
+            
+                   (in_mem_access_set(MEMRE) and 
+                    ((MEMRE_addr = instruction(15 downto 8)) or (MEMRE_addr = instruction(7 downto 0)))) then
+            
+                    enable_counter <= '0';
+                else
+                    enable_counter <= '1';
+                end if;
             else
                 enable_counter <= '1';
-            end if;
-        else
-            enable_counter <= '1';
-        end if; 
+            end if; 
+         end if;
         
     end process;
 end Behavioral;

@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="44.380 ns"></ZoomStartTime>
-      <ZoomEndTime time="234.197 ns"></ZoomEndTime>
-      <Cursor1Time time="179.676 ns"></Cursor1Time>
+      <ZoomStartTime time="2.277 ns"></ZoomStartTime>
+      <ZoomEndTime time="52.818 ns"></ZoomEndTime>
+      <Cursor1Time time="16.057 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="189"></NameColumnWidth>
-      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="25" />
+   <WVObjectSize size="29" />
    <wvobject type="logic" fp_name="/tb_processor/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -30,6 +30,8 @@
    <wvobject type="logic" fp_name="/tb_processor/uut/program_counter/enable">
       <obj_property name="ElementShortName">enable</obj_property>
       <obj_property name="ObjectShortName">enable</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/instr_mem/ADDR">
       <obj_property name="ElementShortName">ADDR[7:0]</obj_property>
@@ -46,54 +48,92 @@
    <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/OP_in">
       <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/A_in">
       <obj_property name="ElementShortName">A_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/B_in">
       <obj_property name="ElementShortName">B_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/LIDI_stage/C_in">
       <obj_property name="ElementShortName">C_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">C_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/OP_in">
       <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/A_in">
       <obj_property name="ElementShortName">A_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/B_in">
       <obj_property name="ElementShortName">B_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/DIEX_stage/C_in">
+      <obj_property name="ElementShortName">C_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/OP_in">
       <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/A_in">
       <obj_property name="ElementShortName">A_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/B_in">
       <obj_property name="ElementShortName">B_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/EXMEM_stage/C_in">
+      <obj_property name="ElementShortName">C_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/MEMRE_stage/OP_in">
       <obj_property name="ElementShortName">OP_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">OP_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/MEMRE_stage/A_in">
       <obj_property name="ElementShortName">A_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">A_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/MEMRE_stage/B_in">
       <obj_property name="ElementShortName">B_in[7:0]</obj_property>
       <obj_property name="ObjectShortName">B_in[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/regfile/regfile">
       <obj_property name="ElementShortName">regfile[0:15][7:0]</obj_property>
@@ -114,6 +154,14 @@
    <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/OUT_DATA">
       <obj_property name="ElementShortName">OUT_DATA[7:0]</obj_property>
       <obj_property name="ObjectShortName">OUT_DATA[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/MEM_MUX/data_in">
+      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/MEM_MUX/data_out">
+      <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/RAM">
       <obj_property name="ElementShortName">RAM[0:255][7:0]</obj_property>

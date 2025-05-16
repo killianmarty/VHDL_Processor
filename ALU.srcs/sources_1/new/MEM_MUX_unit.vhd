@@ -33,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity MEM_MUX_unit is
     Port (
+        clk, flush: in std_logic;
         OP_in  : in  std_logic_vector(7 downto 0);
         B_in  : in  std_logic_vector(7 downto 0);
         data_in  : in  std_logic_vector(7 downto 0);
@@ -43,9 +44,16 @@ end MEM_MUX_unit;
 architecture Behavioral of MEM_MUX_unit is
 
 begin
-
-    with OP_in select data_out <=
-        data_in when x"10", -- LOAD
-        B_in when others;
+    
+    process (clk)
+    begin
+        if flush = '1' then
+            data_out <= x"00";
+        elsif OP_in = x"10" then
+            data_out <= data_in;
+        elsif rising_edge(clk) then
+            data_out <= B_in;
+        end if;
+    end process;
 
 end Behavioral;
