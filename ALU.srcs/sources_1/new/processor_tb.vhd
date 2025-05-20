@@ -70,7 +70,7 @@ begin
         rst <= '0';
 
         -- Run simulation for a while
-        wait for 1000 ns;
+        wait for 1000 ms;
 
     end process;
 

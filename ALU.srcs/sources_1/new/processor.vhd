@@ -42,13 +42,15 @@ architecture rtl of processor is
     signal RE_A, RE_OP, RE_B, RE_C : std_logic_vector(7 downto 0);
     signal QA_DI_MUX, MUX_DI : std_logic_vector(7 downto 0);
     signal ALU_MUX, EX_MUX_B: std_logic_vector(7 downto 0);
-    signal REG_C: std_logic_vector(7 downto 0);
+    signal REG_C, POINTER_MUX_A: std_logic_vector(7 downto 0);
     signal DATAMEM_MUX, DATAMEM_MUX_RE, MEM_STORE_MUX_DAT_MEM: std_logic_vector(7 downto 0);
     signal LC_REG : std_logic;
     signal MEM_LC_DATAMEM : std_logic;
     
     signal JUMP_PC : std_logic_vector(7 downto 0);
     signal JUMP : std_logic;
+    
+    signal LED_SIGNALS: std_logic_vector(7 downto 0) := (others => '0');
     
 begin
     ----------------------------------------------------------------
@@ -115,12 +117,20 @@ begin
             data_out => MUX_DI
         );
         
+    POINTER_MUX: entity work.POINTER_MUX_unit
+        port map(
+            OP_in => DI_OP,
+            A_in => DI_A,
+            C_in => REG_C,
+            A_out => POINTER_MUX_A
+        );
+        
     -- DI/EX Pipeline Register
     DIEX_stage: entity work.pipeline
         port map(
             clk    => clk,
             flush  => JUMP,
-            A_in   => DI_A,
+            A_in   => POINTER_MUX_A, -- POINTER_MUX_A
             OP_in  => DI_OP,
             B_in   => MUX_DI,
             C_in   => REG_C,
@@ -150,6 +160,14 @@ begin
             S => ALU_MUX,
             Op => EX_OP
         );
+        
+    -- PRINT UNIT
+    process(clk)
+    begin
+        if(EX_OP=x"09") then
+            LED_SIGNALS <= EX_B;
+        end if;
+    end process;
         
     -- MUX of EX stage
     EX_MUX: entity work.EX_MUX_unit

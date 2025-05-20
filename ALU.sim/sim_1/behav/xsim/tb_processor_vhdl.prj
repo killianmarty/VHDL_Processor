@@ -8,6 +8,7 @@ vhdl xil_defaultlib  \
 "../../../../ALU.srcs/sources_1/new/MEM_MUX_unit.vhd" \
 "../../../../ALU.srcs/sources_1/new/MEM_STORE_MUX_unit.vhd" \
 "../../../../ALU.srcs/sources_1/new/MUX_unit.vhd" \
+"../../../../ALU.srcs/sources_1/new/POINTER_MUX_unit.vhd" \
 "../../../../ALU.srcs/sources_1/new/Registers_bench.vhd" \
 "../../../../ALU.srcs/sources_1/new/alea_predictor.vhd" \
 "../../../../ALU.srcs/sources_1/new/counter.vhd" \

@@ -5,29 +5,4 @@ Running: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.counter [counter_default]
-Compiling architecture behavioral of entity xil_defaultlib.alea_predictor [alea_predictor_default]
-Compiling architecture rom of entity xil_defaultlib.instr_memory [instr_memory_default]
-Compiling architecture behavioral of entity xil_defaultlib.pipeline [pipeline_default]
-Compiling architecture behavioral of entity xil_defaultlib.DI_MUX_unit [di_mux_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.Branch_unit [branch_unit_default]
-Compiling architecture behavior of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture behavioral of entity xil_defaultlib.EX_MUX_unit [ex_mux_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.MEM_STORE_MUX_unit [mem_store_mux_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.MEM_LC [mem_lc_default]
-Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
-Compiling architecture behavioral of entity xil_defaultlib.MEM_MUX_unit [mem_mux_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.RE_LC [re_lc_default]
-Compiling architecture rtl of entity xil_defaultlib.Registers_bench [registers_bench_default]
-Compiling architecture rtl of entity xil_defaultlib.processor [processor_default]
-Compiling architecture test of entity xil_defaultlib.tb_processor
-Built simulation snapshot tb_processor_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

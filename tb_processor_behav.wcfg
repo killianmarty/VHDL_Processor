@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2.277 ns"></ZoomStartTime>
-      <ZoomEndTime time="52.818 ns"></ZoomEndTime>
-      <Cursor1Time time="16.057 ns"></Cursor1Time>
+      <ZoomStartTime time="988.516 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,002.297 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <NameColumnWidth column_width="177"></NameColumnWidth>
       <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="29" />
+   <WVObjectSize size="26" />
    <wvobject type="logic" fp_name="/tb_processor/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -26,12 +26,6 @@
    <wvobject type="logic" fp_name="/tb_processor/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_processor/uut/program_counter/enable">
-      <obj_property name="ElementShortName">enable</obj_property>
-      <obj_property name="ObjectShortName">enable</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/instr_mem/ADDR">
       <obj_property name="ElementShortName">ADDR[7:0]</obj_property>
@@ -139,21 +133,9 @@
       <obj_property name="ElementShortName">regfile[0:15][7:0]</obj_property>
       <obj_property name="ObjectShortName">regfile[0:15][7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_processor/uut/DATA_MEM/RW">
-      <obj_property name="ElementShortName">RW</obj_property>
-      <obj_property name="ObjectShortName">RW</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/ADDR">
       <obj_property name="ElementShortName">ADDR[7:0]</obj_property>
       <obj_property name="ObjectShortName">ADDR[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/IN_DATA">
-      <obj_property name="ElementShortName">IN_DATA[7:0]</obj_property>
-      <obj_property name="ObjectShortName">IN_DATA[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_processor/uut/DATA_MEM/OUT_DATA">
-      <obj_property name="ElementShortName">OUT_DATA[7:0]</obj_property>
-      <obj_property name="ObjectShortName">OUT_DATA[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_processor/uut/MEM_MUX/data_in">
       <obj_property name="ElementShortName">data_in[7:0]</obj_property>
@@ -167,5 +149,9 @@
       <obj_property name="ElementShortName">RAM[0:255][7:0]</obj_property>
       <obj_property name="ObjectShortName">RAM[0:255][7:0]</obj_property>
       <obj_property name="Reversed">false</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_processor/uut/LED_SIGNALS">
+      <obj_property name="ElementShortName">LED_SIGNALS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LED_SIGNALS[7:0]</obj_property>
    </wvobject>
 </wave_config>

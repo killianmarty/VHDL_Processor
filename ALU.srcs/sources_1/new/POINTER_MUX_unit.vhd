@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 05/09/2025 02:24:53 PM
+-- Create Date: 05/20/2025 12:57:04 PM
 -- Design Name: 
--- Module Name: MEM_LC - Behavioral
+-- Module Name: POINTER_MUX_unit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,33 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-
-entity MEM_LC is
-    Port (
-        OP         : in  std_logic_vector(7 downto 0);
-        RW   : out std_logic
+entity POINTER_MUX_unit is
+    port(
+        signal A_in, C_in, OP_in : in std_logic_vector(7 downto 0);
+        signal A_out : out std_logic_vector(7 downto 0)
     );
-end MEM_LC;
+end POINTER_MUX_unit;
 
-architecture Behavioral of MEM_LC is
+architecture Behavioral of POINTER_MUX_unit is
+    
 begin
-    process(OP)
-    begin
-        case OP is
-            when x"10" =>  -- LOAD
-                RW <= '1';
-            when x"11" => -- STORE
-                RW <= '0';
-            when x"0E" => -- LCOP
-                RW <= '0';
-            when x"0F" => -- RCOP
-                RW <= '1';
-                
-            when others =>
-                RW <= '1';
-        end case;
-    end process;
+    A_out <= C_in when (OP_in = x"0E") else A_in;
 end Behavioral;

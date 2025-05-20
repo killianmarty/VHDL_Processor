@@ -49,7 +49,7 @@ begin
     begin
         if flush = '1' then
             data_out <= x"00";
-        elsif OP_in = x"10" then
+        elsif OP_in = x"10" or OP_in = x"0F" then
             data_out <= data_in;
         elsif rising_edge(clk) then
             data_out <= B_in;

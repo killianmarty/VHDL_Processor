@@ -59,6 +59,8 @@ begin
                 W <= '1';
             when x"0D" => --NEQ
                 W <= '1';
+            when x"0F" => --RCOP
+                W <= '1';
                 
             when others =>
                 null;

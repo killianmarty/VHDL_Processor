@@ -45,6 +45,7 @@ begin
 
     with OP_in select data_out <=
         A_in when x"11",
+        A_in when x"0E",
         B_in when others;
 
 end Behavioral;

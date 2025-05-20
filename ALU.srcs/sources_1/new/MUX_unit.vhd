@@ -55,7 +55,10 @@ begin
         data_in when x"0A",
         data_in when x"0B",
         data_in when x"0C",
-        data_in when x"0D", 
+        data_in when x"0D",
+        data_in when x"09",
+        data_in when x"0E", 
+        data_in when x"0F",
         B_in when others;
 
 end Behavioral;
